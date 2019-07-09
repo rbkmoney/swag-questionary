@@ -1,0 +1,24 @@
+type: object
+description: Частное лицо
+properties:
+    personAnthroponym:
+      description: ФИО
+      $ref: '#/definitions/PersonAnthroponym'
+    birthDate:
+      description: Дата рождения
+      type: string
+    birthPlace:
+      description: Место рождения
+      type: string
+    citizenship:
+      description: Гражданство
+      type: string
+    residenceAddress:
+      description: Адрес места жительства
+      type: string
+    actualAddress:
+      description: Фактический адрес
+      type: string
+    contactInfo:
+      description: Контактная информация
+      $ref: '#/definitions/ContactInfo'
