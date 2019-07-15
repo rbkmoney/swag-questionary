@@ -1,4 +1,4 @@
-description: Сведения о документе подтверждающем право пребывания в РФ
+description: ФИО
 type: object
 properties:
   firstName:

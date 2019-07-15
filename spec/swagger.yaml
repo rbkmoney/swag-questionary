@@ -12,7 +12,7 @@ info:
     email: support@rbk.money
     url: https://rbk.money
 host: api.rbk.money
-basePath: /dapi/v0
+basePath: /questionary/v0
 schemes:
   - https
 consumes:
@@ -36,10 +36,6 @@ security:
   - bearer: []
 
 responses:
-  NotFound:
-    description: Заданный ресурс не найден
-    schema:
-      $ref: '#/definitions/GeneralError'
   QuestionaryNotFound:
     description: Заданный ресурс не найден
     schema:
