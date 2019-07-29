@@ -1,5 +1,5 @@
 #!groovy
-build('swag-questionary', 'docker-host') {
+build('swag-questionary-aggr-proxy', 'docker-host') {
   checkoutRepo()
   loadBuildUtils()
 
@@ -14,7 +14,7 @@ build('swag-questionary', 'docker-host') {
   pipeDefault() {
     runStage('init') {
       withGithubSshCredentials {
-          sh 'make wc_init'
+        sh 'make wc_init'
       }
     }
 
@@ -23,13 +23,15 @@ build('swag-questionary', 'docker-host') {
     }
 
     // Java
-    runStage('Execute build container') {
+    runStage('Build client & server') {
       withCredentials([[$class: 'FileBinding', credentialsId: 'java-maven-settings.xml', variable: 'SETTINGS_XML']]) {
-         if (env.BRANCH_NAME == 'master' || env.BRANCH_NAME.startsWith('epic/')) {
-           sh 'make SETTINGS_XML=${SETTINGS_XML} BRANCH_NAME=${BRANCH_NAME} wc_java.deploy'
-         } else {
-           sh 'make SETTINGS_XML=${SETTINGS_XML} wc_java.compile'
-         }
+        if (env.BRANCH_NAME == 'master' || env.BRANCH_NAME.startsWith('epic/')) {
+          sh 'make SETTINGS_XML=${SETTINGS_XML} BRANCH_NAME=${BRANCH_NAME} java.swag.deploy_client'
+          sh 'make SETTINGS_XML=${SETTINGS_XML} BRANCH_NAME=${BRANCH_NAME} java.swag.deploy_server'
+        } else {
+          sh 'make SETTINGS_XML=${SETTINGS_XML} BRANCH_NAME=${BRANCH_NAME} java.swag.compile_client'
+          sh 'make SETTINGS_XML=${SETTINGS_XML} BRANCH_NAME=${BRANCH_NAME} java.swag.compile_server'
+        }
       }
     }
   }
