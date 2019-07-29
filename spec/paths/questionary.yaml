@@ -4,12 +4,6 @@ post:
     - Questionary
   operationId: saveQuestionary
   parameters:
-    - $ref: '#/parameters/requestID'
-    - name: Authorization
-      in: header
-      required: true
-      type: string
-      format: string
     - name: questionaryParams
       description: Параметры создаваемого запроса
       in: body
@@ -51,18 +45,15 @@ post:
 get:
   operationId: getQuestionary
   parameters:
-    - $ref: '#/parameters/requestID'
-    - name: Authorization
-      in: header
-      required: true
-      type: string
-      format: string
-    - name: questionaryParams
-      description: Параметры создаваемого запроса
-      in: body
+    - name: questionaryId
+      description: id анкеты
+      in: path
       required: true
       schema:
-        $ref: '#/definitions/QuestionaryGetParams'
+        - type: integer
+    - name: version
+      description: номер версии
+      in: query
   responses:
     '201':
       description: Анкета создана

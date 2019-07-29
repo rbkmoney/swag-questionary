@@ -1,3 +1,6 @@
 type: object
-allOf:
-  - $ref: '#/definitions/Questionary'
+properties:
+  version:
+    $ref: '#/definitions/Version'
+  questionary:
+    $ref: '#/definitions/Questionary'

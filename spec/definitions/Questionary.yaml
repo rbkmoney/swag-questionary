@@ -1,3 +1,14 @@
 type: object
-allOf:
-  - $ref: '#/definitions/QuestionaryParams'
+required:
+  - id
+  - ownerId
+  - data
+properties:
+  id:
+    description: id анкеты
+    type: string
+  ownerID:
+    description: id владельца анкеты
+    type: string
+  data:
+    $ref: '#/definitions/QuestionaryData'

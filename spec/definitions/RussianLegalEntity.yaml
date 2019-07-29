@@ -35,7 +35,7 @@ allOf:
         type: string
       foundersInfo:
         $ref: '#/definitions/FoundersInfo'
-      licanseInfo:
+      licenseInfo:
         $ref: '#/definitions/LicenseInfo'
       principalActivity:
         $ref: '#/definitions/Activity'
