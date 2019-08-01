@@ -1,10 +1,6 @@
 type: object
 properties:
   version:
-    description: Номер версии
-    type: integer
-    format: int64
-    minimum: 1
-    default: 1
+    $ref: '#/definitions/Version'
   questionary:
     $ref: '#/definitions/Questionary'

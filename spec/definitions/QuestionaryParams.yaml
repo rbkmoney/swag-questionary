@@ -13,6 +13,4 @@ properties:
   data:
     $ref: '#/definitions/QuestionaryData'
   version:
-    description: Номер версии
-    type: integer
-    format: int64
+    $ref: '#/definitions/Version'

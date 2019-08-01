@@ -14,9 +14,7 @@ post:
     '201':
       description: Анкета создана
       schema:
-        description: Номер версии
-        type: integer
-        format: int64
+        $ref: '#/definitions/Version'
     '404':
       $ref: '#/responses/QuestionaryNotFound'
     '401':
