@@ -6,4 +6,8 @@ allOf:
       - version
     properties:
       version:
-        $ref: '#/definitions/Version'
+        description: Номер версии
+        type: integer
+        format: int64
+        minimum: 1
+        default: 1
