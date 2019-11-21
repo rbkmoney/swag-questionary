@@ -33,3 +33,9 @@ allOf:
         type: array
         items:
           $ref: "#/definitions/BeneficialOwner"
+      hasBeneficialOwners:
+        type: boolean
+      pdlCategory:
+        type: boolean
+      pdlRelationDegree:
+        type: string
