@@ -5,6 +5,8 @@ allOf:
     properties:
       russianPrivateEntity:
         $ref: "#/definitions/RussianPrivateEntity"
+      name:
+        type: string
       inn:
         type: string
       identityDocument:
